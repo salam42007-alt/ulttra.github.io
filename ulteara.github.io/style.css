@@ -1,0 +1,52 @@
+/* الخطوط والألوان */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298, #000, #ff4d6d);
+  color: #fff;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+nav button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.tab-active { 
+  box-shadow: 0 0 10px #fff; 
+}
+
+/* ألوان الخانات */
+nav button[data-target="houses"] { background-color: #7CFC00; color:#000; } /* أخضر فاتح */
+nav button[data-target="tools"] { background-color: #1E90FF; } /* أزرق بارد */
+nav button[data-target="ranks"] { background-color: #DA70D6; } /* بنفسجي فاتح */
+nav button[data-target="claims"] { background-color: #FFD700; color:#000; } /* أصفر ذهبي */
+
+#content img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#content .details {
+  margin-top: 20px;
+  font-size: 20px;
+}
