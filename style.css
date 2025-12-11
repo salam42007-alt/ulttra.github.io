@@ -1,0 +1,225 @@
+/* ---------------------------------------------------- */
+/* 1. إعدادات الخلفية المتحركة (GIF) وتأثير التمويه */
+/* ---------------------------------------------------- */
+.background-gif-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    /* رابط الـ GIF المطلوب */
+    background-image: url('https://media1.tenor.com/m/i6PGA5DtAnwAAAAd/minecraft-minecraft-nature.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blur-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 41, 55, 0.7); /* طبقة شفافة داكنة */
+    backdrop-filter: blur(5px); /* تأثير التمويه */
+    z-index: -1;
+}
+
+/* ---------------------------------------------------- */
+/* 2. الإعدادات الأساسية والخطوط */
+/* ---------------------------------------------------- */
+body {
+  font-family: 'Cairo', sans-serif; /* خط حديث وداعم للعربية */
+  margin: 0;
+  padding-top: 60px; /* ترك مساحة لشريط التنقل الثابت */
+  background-color: transparent; 
+  color: #f9fafb; 
+  text-align: center;
+  position: relative; 
+}
+
+/* ---------------------------------------------------- */
+/* 3. شريط التنقل الجديد (Main Navbar) - التوسيط */
+/* ---------------------------------------------------- */
+header {
+  padding: 0; 
+  background-color: transparent; 
+  box-shadow: none;
+  margin-bottom: 30px;
+}
+.welcome-title {
+    margin: 40px 0 10px 0;
+    font-size: 2.5em;
+}
+.server-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.main-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(17, 24, 39, 0.9); /* خلفية داكنة شبه شفافة */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* توسيط محتوى الشريط بالكامل */
+    align-items: center;
+    padding: 0 20px;
+    backdrop-filter: blur(5px); 
+}
+
+.nav-center-content {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* المسافة بين الروابط وحقل البحث */
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.main-navbar button.tab {
+    padding: 10px 15px;
+    border: none;
+    background: transparent;
+    color: #f9fafb;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.main-navbar button.tab:hover {
+    color: #4CAF50; /* لون عند المرور */
+}
+
+.tab-active { 
+  color: #FFD700 !important; /* لون التفعيل الذهبي */
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  border-bottom: 2px solid #FFD700;
+}
+
+/* 4. حقل البحث داخل شريط التنقل */
+.search-in-nav {
+    width: 200px; 
+    padding: 8px 15px;
+    border-radius: 4px;
+    border: 1px solid #4B5563;
+    background-color: #374151;
+    color: #fff;
+    font-size: 14px;
+}
+.search-in-nav::placeholder {
+    color: #9CA3AF;
+}
+
+/* ---------------------------------------------------- */
+/* 5. عرض المنتجات (Grid & Cards) */
+/* ---------------------------------------------------- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+#content {
+  display: grid;
+  /* تحديد أعمدة ثابتة مع مسافات واضحة لمنع التداخل */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px; 
+  padding: 20px 0;
+}
+
+.product-card {
+    background-color: #374151; 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: right; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-bottom: 4px solid transparent; 
+}
+
+.product-info {
+    padding: 15px;
+}
+.product-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2em;
+}
+.product-info p {
+    color: #FBBF24; 
+    font-weight: bold;
+    margin: 0;
+}
+
+/* تخصيص شريط الألوان لأسفل الصورة (حسب الفئة) */
+.product-card.houses img { border-color: #7CFC00; } /* أخضر ليموني */
+.product-card.tools img { border-color: #1E90FF; } /* أزرق */
+.product-card.ranks img { border-color: #DA70D6; } /* أرجواني */
+.product-card.claims img { border-color: #FFD700; } /* ذهبي */
+.product-card.chests img { border-color: #8A2BE2; } /* بنفسجي للأصناديق */
+
+/* ---------------------------------------------------- */
+/* 6. تنسيق صفحة التفاصيل الجديدة */
+/* ---------------------------------------------------- */
+.product-details-page {
+    padding-bottom: 50px;
+    background-color: rgba(31, 41, 55, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+/* زر العودة والشراء */
+.back-button {
+    background-color: transparent;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+}
+.back-button:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.buy-button {
+    background-color: #4CAF50; /* أخضر */
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+.buy-button:hover {
+    background-color: #45a049;
+}
